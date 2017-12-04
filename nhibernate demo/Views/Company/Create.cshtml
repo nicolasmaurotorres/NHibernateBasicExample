@@ -1,11 +1,11 @@
-﻿@model nhibernate_demo.Models.Farmer
+﻿@model nhibernate_demo.Models.Company
 
 @{
-    ViewBag.Title = "Create Farmer";
+    ViewBag.Title = "Create Company";
 }
 
 <div class="center">
-    <h2>Create Farmer</h2>
+    <h2>Create Company</h2>
 
     <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -19,8 +19,10 @@
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
+       
             </div>
+            <br />
+            <a id="button" title="button">EcoFriendly ?</a>
 
             <hr class="hr-center" />
 
@@ -39,6 +41,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
         document.getElementsByTagName("input")[0].setAttribute("required", "required");
+        var button = document.getElementById("button");
+        button.onclick = function () {
+            if (!this.style.backgroundColor) {
+                this.style.backgroundColor = 'yellow';
+            }
+            else {
+                this.style.backgroundColor = null;
+            }
+        }
+
     })
 </script>
 

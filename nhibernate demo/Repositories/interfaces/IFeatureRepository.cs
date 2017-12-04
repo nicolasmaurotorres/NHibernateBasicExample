@@ -2,7 +2,7 @@
 using System.Linq;
 using nhibernate_demo.Models;
 
-namespace nhibernate_demo.Repositories
+namespace nhibernate_demo.Repositories.interfaces
 {
     interface IFeatureRepository
     {

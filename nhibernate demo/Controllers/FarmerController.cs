@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using nhibernate_demo.Repositories;
 using nhibernate_demo.Models;
 using Autofac;
+using nhibernate_demo.Repositories.interfaces;
 
 namespace nhibernate_demo.Controllers
 {
@@ -14,6 +15,7 @@ namespace nhibernate_demo.Controllers
 
         public virtual ActionResult Index()
         {
+            //ese container es algo propio del MVC o lo creaste vos Robb ?
             var repository = MvcApplication.container.Resolve<IFarmerRepository>();
             return View(repository.GetFarmers().ToList());
         }
@@ -30,7 +32,6 @@ namespace nhibernate_demo.Controllers
             return View();
         } 
 
-
         [HttpPost]
         public virtual ActionResult Create(Farmer farmer)
         {
@@ -42,13 +43,11 @@ namespace nhibernate_demo.Controllers
         public virtual ActionResult Edit(int id)
         {
             var repository = MvcApplication.container.Resolve<IFarmerRepository>();
-
             return View(repository.GetByID(id));
         }
 
         public virtual ActionResult GetBiggestFarmer(string pantColor)
         {
-
             return View();
         }
 
@@ -65,11 +64,8 @@ namespace nhibernate_demo.Controllers
             {
                 repository.Edit(farmer);
                 return RedirectToAction("Index");
-            }
-
-            
+            }    
         }
-
 
         public virtual ActionResult Delete(int id)
         {

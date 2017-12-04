@@ -148,13 +148,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CascadeConvention.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
     <Compile Include="Repositories\GrainRepository.cs" />
     <Compile Include="Repositories\FarmerRepository.cs" />
     <Compile Include="Repositories\FeatureRepository.cs" />
-    <Compile Include="Repositories\IFeatureRepository.cs" />
-    <Compile Include="Repositories\IGrainRepository.cs" />
-    <Compile Include="Repositories\IFarmerRepository.cs" />
-    <Compile Include="Repositories\nhibernateRepo1.cs" />
+    <Compile Include="Repositories\interfaces\ICompanyRepository.cs" />
+    <Compile Include="Repositories\interfaces\IFeatureRepository.cs" />
+    <Compile Include="Repositories\interfaces\IGrainRepository.cs" />
+    <Compile Include="Repositories\interfaces\IFarmerRepository.cs" />
     <Compile Include="Repositories\SessionFactoryProvider.cs" />
   </ItemGroup>
   <ItemGroup>

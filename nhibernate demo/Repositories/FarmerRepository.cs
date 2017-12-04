@@ -5,6 +5,7 @@ using System.Web;
 using nhibernate_demo.Models;
 using NHibernate;
 using NHibernate.Linq;
+using nhibernate_demo.Repositories.interfaces;
 
 namespace nhibernate_demo.Repositories
 {
@@ -15,7 +16,9 @@ namespace nhibernate_demo.Repositories
 
         public IQueryable<Farmer> GetFarmers()
         {
+           // _session.Q
            return _session.Query<Farmer>();
+
         }
 
         public Farmer GetByID(int id)

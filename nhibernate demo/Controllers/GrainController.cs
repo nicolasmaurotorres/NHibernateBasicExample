@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using nhibernate_demo.Maps;
 using System.IO;
 using nhibernate_demo.JsonSerialization;
+using nhibernate_demo.Repositories.interfaces;
+
 
 namespace nhibernate_demo.Controllers
 {

@@ -5,10 +5,11 @@ using System.Web;
 using NHibernate;
 using nhibernate_demo.Models;
 using NHibernate.Linq;
+using nhibernate_demo.Repositories.interfaces;
 
 namespace nhibernate_demo.Repositories
 {
-    public class FeatureRepository:BaseRepository, nhibernate_demo.Repositories.IFeatureRepository
+    public class FeatureRepository:BaseRepository, IFeatureRepository
     {
         public FeatureRepository(ISession session) : base(session) { }
         public IQueryable<Feature> GetFeatures()

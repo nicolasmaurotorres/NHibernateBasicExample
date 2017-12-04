@@ -9,5 +9,8 @@ namespace nhibernate_demo.Models
     {
         public virtual int ID { get; set; }
         public virtual string Name { get; set; }
+        public virtual bool EcoFriendly { get; set; } // if the company is ecoFriendly or not
+
+
     }
 }

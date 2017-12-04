@@ -21,15 +21,6 @@ namespace nhibernate_demo.Repositories
                                    .ExposeConfiguration(UpdateSchema)
                                    .CurrentSessionContext("web")
                                    .BuildSessionFactory();
-                  /*
-                   _sessionFactory = Fluently.Configure()
-                                             .Database(MsSqlConfiguration.MsSql2008)
-                                             .ConnectionString(@"Server=(local);initial catalog=xxxxx;user=xxxxx;password=xxxxx;") // Modify your ConnectionString
-                                             .ShowSql()
-                                             .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Program>())
-                                             .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
-                                             .BuildSessionFactory();
-                  */
 
             }
             return _session;

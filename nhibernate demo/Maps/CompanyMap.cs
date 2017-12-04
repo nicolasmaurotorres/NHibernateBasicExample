@@ -15,6 +15,9 @@ namespace nhibernate_demo.Maps
             Id(x => x.ID);
 
             Map(x => x.Name); // Map: Used to create column for the selected property
+
+            Map(x => x.EcoFriendly)
+               .Default("false");
         }
     }
 }
