@@ -23,11 +23,41 @@ namespace nhibernate_demo.Controllers
         }
 
         [HttpPost]
-        public virtual ActionResult Create(Company company)
+        public virtual ActionResult Create(Company newCompany)
         {
             var repository = MvcApplication.container.Resolve<ICompanyRepository>();
-            repository.Save(company);
-            return RedirectToAction("Index");
+            if (String.IsNullOrEmpty(newCompany.Name))
+            {
+                ViewBag.notUniqueCompanyName = true;
+                return View("Create");
+            }
+            var uniqueCompanyName = true;
+            var companies = repository.GetCompanies().ToArray();
+            var count = 0;
+            while (uniqueCompanyName && count < companies.Count())
+            {
+                if (companies[count].Name.Equals(newCompany.Name))
+                {
+                    uniqueCompanyName = false;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+           
+            if (uniqueCompanyName)
+            {
+                repository.Save(newCompany);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.notUniqueCompanyName = true;
+                return View("Create");
+            }
+        
+            
         }
 
         [HttpPost]

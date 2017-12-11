@@ -29,6 +29,7 @@ namespace nhibernate_demo.Controllers
 
         public virtual ActionResult Create()
         {
+            ViewBag.Companies = MvcApplication.container.Resolve<ICompanyRepository>().GetCompanies();
             return View();
         } 
 

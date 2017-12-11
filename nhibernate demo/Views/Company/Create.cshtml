@@ -21,8 +21,12 @@
                 @Html.EditorFor(model => model.Name)
        
             </div>
-            <br />
-            <a id="button" title="button">EcoFriendly ?</a>
+            <div class="editor-field">
+                @Html.LabelFor(model => model.EcoFriendly)
+            </div>
+            <div class="editor-label">
+                @Html.CheckBoxFor(m => m.EcoFriendly)
+            </div>
 
             <hr class="hr-center" />
 
@@ -30,6 +34,14 @@
                 <input class="btn btn-default no-decoration" type="submit" value="Create" />
                 <a class="btn btn-default no-decoration" href="/Farmer">Back to List</a>
             </p>
+            @if (ViewBag.emptyName != null && ViewBag.emptyName == true)
+            {
+                <span class="alert" style="color:red">The name of the company is Empty!</span>
+            }
+            @if (ViewBag.notUniqueCompanyName != null && ViewBag.notUniqueCompanyName == true)
+            {
+                <span class="alert" style="color:red">The company already exists!</span>
+            }
         </fieldset>
     }
 

@@ -16,6 +16,9 @@
                 <th>
                     EcoFriendly
                 </th>
+                <th>
+                    Actions
+                </th>
             </tr>
 
             @foreach (var item in Model)
@@ -23,6 +26,9 @@
                 <tr>
                     <td>
                         @item.Name
+                    </td>
+                    <td>
+                        @item.EcoFriendly
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

@@ -1,0 +1,6 @@
+﻿<select name="companyID">
+    @foreach (nhibernate_demo.Models.Company company in (IEnumerable<nhibernate_demo.Models.Company>)ViewData["Companies"])
+    {
+        <option value="@company.ID">@company.Name</option>
+    }
+</select>

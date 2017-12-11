@@ -21,9 +21,17 @@
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
+          
+            <div class="editor-label">
+                <label>Company Name</label>
+            </div>
 
-            <hr class="hr-center" />
+            <div id="editor-field" class="col-md-4">
+              @Html.DropDownList("Select Company", DropDownListUtility.GetFooBarDropDown("2"))
+            </div>
+            @*<!-- @Html.DropDownListFor(model => model.tipo, listItems, "-- Select Status --") -->*@
 
+            <hr class="hr-center" /> <!-- soy una barra separadora -->
             <p>
                 <input class="btn btn-default no-decoration" type="submit" value="Create" />
                 <a class="btn btn-default no-decoration" href="/Farmer">Back to List</a>
@@ -35,10 +43,4 @@
         @Html.ActionLink("Back to List", "Index")
     </div>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        document.getElementsByTagName("input")[0].setAttribute("required", "required");
-    })
-</script>
 
